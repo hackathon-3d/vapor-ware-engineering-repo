@@ -1,0 +1,4 @@
+TODO:
+implement the GPLv2 T's and C's (terms/conditions) or copy the repo into a new github repo with GPLv2 applied.
+
+GPLv2's application is <a href="http://www.gnu.org/licenses/gpl-2.0.html">described here</a>
