@@ -8,5 +8,6 @@
     <string name="passwd">password</string>
     <string name="email">email address</string>
     <string name="scr2_header">Now we\'ll get some credentials needed for managing the email you\'re going to send out</string>
+    <string name="before">Before:</string>
 
 </resources>
