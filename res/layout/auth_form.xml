@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- this layout view was initially thought to be integral to the app
+but the idea took another direction.  Unless it is enhanced to tie into 2-factor auth
+similar to the way which hyperkitty does, this view is not useful and is kept only as a relic -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >

@@ -9,17 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbarStyle="insideOverlay"
     android:textAlignment="center"
-    tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="@string/hello_list_user"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:typeface="serif" />
+    tools:context=".SearchableDictionary" >
 
     <TextView
         android:id="@+id/textView1"
@@ -27,19 +17,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:shadowColor="#00FFF0"
-        android:text="Before:"
+        android:text="Possible thread-months:"
         android:textAppearance="@style/AppBaseTheme"
         android:textSize="20dp"
         android:textStyle="bold"
         android:typeface="serif" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <TextView
+        android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="26dp"
-        android:src="@drawable/mm3" />
-    
+        android:layout_marginTop="45dp"
+        android:text="@string/explain_purpose_to_user"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:typeface="serif" />
 
     <TextView
         android:id="@+id/textView2"
@@ -47,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="68dp"
-        android:text="Input the URL of a mailing list you follow"
+        android:text="The months in which there was communication will appear below:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -57,8 +49,7 @@
         android:layout_marginTop="10dp"
         android:background="#000FF0"
         android:ems="10"
-        android:hint="http://lists.website.org/pipermail/list-name"
-        android:text="http://lists.csclug.org/pipermail/csclug"
+        android:hint="[2013-August,2013-September]"
         android:textColor="#FFF999" >
 
         <requestFocus />
@@ -69,10 +60,6 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="if you don&apos;t follow any, it&apos;s okay; you can accept the default one to find a demo
-        (under ideal app-working circumstances)"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="15dp" />
+        android:text="TextView" />
 
 </TableLayout>
