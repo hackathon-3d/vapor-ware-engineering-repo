@@ -1,3 +1,4 @@
+package com.example.testhack;
 
 
 import java.io.BufferedReader;
@@ -11,13 +12,17 @@ import java.util.Calendar;
 /**  
   *	A class for determining the URL's of a MM2.0 list to download
   * based on the kittystore/scripts.py file on the hyperkitty github account.
+  * this class can output to console the month-years of a lists archive in order
+  * to retrieve the text-archives for each month where there was correspondence
+  * on a list. presumably, next we'd retreive the .txt file and parse it for 
+  * a search key to help the user determine whether the key occurred.
   * @Author Chris Cargile
   **/
 public class Computater{
 	
 	static enum MONTHS {January , February, March, April, May, June, July,
           August, September, October, November, December};
-	
+	private ArrayList<String> answer;
 	/**
 	* get a url-specified list and return a list
 	* of all the URL's for the Monthly files
@@ -27,10 +32,8 @@ public class Computater{
 	* if desired
 	**/
 	public Computater(String[] args){
-		ArrayList<String> answer=getArchiverMonths();
-	 	for(String a:answer)
-	 		System.out.println(a);
-		}
+		answer=getArchiverMonths();
+	}	
 
 	public ArrayList<String> getArchiverMonths(){
 		/*
@@ -109,7 +112,11 @@ public class Computater{
 			}
 		return htmlSource;
 	}
-	public static void main(String[] args){
-		new Computater(null);
+	public ArrayList<String> getMonths(){
+		ArrayList<String> months = new ArrayList<String>();
+		for(String m:answer){
+			months.add(m);
+		}
+		return months;
 	}
 }
