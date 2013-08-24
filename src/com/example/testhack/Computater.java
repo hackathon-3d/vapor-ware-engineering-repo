@@ -1,3 +1,4 @@
+package com.example.testhack;
 
 
 import java.io.BufferedReader;
@@ -11,6 +12,10 @@ import java.util.Calendar;
 /**  
   *	A class for determining the URL's of a MM2.0 list to download
   * based on the kittystore/scripts.py file on the hyperkitty github account.
+  * this class can output to console the month-years of a lists archive in order
+  * to retrieve the text-archives for each month where there was correspondence
+  * on a list. presumably, next we'd retreive the .txt file and parse it for 
+  * a search key to help the user determine whether the key occurred.
   * @Author Chris Cargile
   **/
 public class Computater{
