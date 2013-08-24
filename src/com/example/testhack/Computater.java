@@ -1,5 +1,6 @@
 package com.example.testhack;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,6 +12,10 @@ import java.util.Calendar;
 /**  
   *	A class for determining the URL's of a MM2.0 list to download
   * based on the kittystore/scripts.py file on the hyperkitty github account.
+  * this class can output to console the month-years of a lists archive in order
+  * to retrieve the text-archives for each month where there was correspondence
+  * on a list. presumably, next we'd retreive the .txt file and parse it for 
+  * a search key to help the user determine whether the key occurred.
   * @Author Chris Cargile
   **/
 public class Computater{
@@ -27,8 +32,11 @@ public class Computater{
 	* if desired
 	**/
 	public Computater(String[] args){
-		
+		ArrayList<String> answer=getArchiverMonths();
+	 	for(String a:answer)
+	 		System.out.println(a);
 		}
+
 	public ArrayList<String> getArchiverMonths(){
 		/*
 		if(args!=null){
@@ -44,49 +52,67 @@ public class Computater{
 			}	
 			*/
 			String url="http://lists.csclug.org/pipermail/csclug";
-			URL url2;
-			HttpURLConnection http;
-			InputStreamReader is;
-			String htmlSource="";
-			ArrayList<String> result=new ArrayList<String>();
-			try {
-				url2 = new URL(url);
-				http= (HttpURLConnection) url2.openConnection();
-				http.setRequestMethod("GET");
-				is = new InputStreamReader(http.getInputStream());
-				BufferedReader rd = new BufferedReader(is);
-				String line=rd.readLine();
-				while(line!=null){
-					//System.out.println(line);
-					htmlSource+=line;
-					line=rd.readLine();
-					}
-				int startYear=1988;
-				final Calendar thisYear=Calendar.getInstance();
-				int endYear=thisYear.get(Calendar.YEAR);
-				int year=startYear;
-				
-				for(;year>=startYear && year<=endYear;year++){
-					for(Object Month:MONTHS.values()){
-						String month=(String)Month.toString();
-						String target=month+"-"+year;
-						result.add(target);
-					}
+			String htmlSource=stringifyHTMLSource(url);
+			//System.out.println(htmlSource);
+			int startYear=1988;
+			final Calendar thisYear=Calendar.getInstance();
+			int endYear=thisYear.get(Calendar.YEAR);
+			int year=startYear;
+			ArrayList<String>result=new ArrayList<String>();
+			int count=0;
+			for(;year>=startYear && year<=endYear;year++){
+				for(Object Month:MONTHS.values()){
+					String month=(String)Month.toString();
+					String target=year+"-"+month;
+					result.add(target);
+//					System.out.println(++count+")adding "+target);
 				}
-				System.out.println(result.get(result.size()-1));
-				for(int i=0;i<result.size();i++){
-					if(!htmlSource.contains(result.get(i))){
-						result.remove(result.get(i));
-					}
+			}
+			System.out.println(htmlSource);
+			boolean found=false;
+			//System.out.println(result.get(result.size()-1));
+			ArrayList<String> result2 = new ArrayList<String>();
+			for(String a:result)
+				result2.add(new String(a));
+			
+			for(int i=0;i<result.size();i++){
+				String word = result.get(i);
+//				System.out.println("getting up to:"+word);
+				if(!htmlSource.contains(word)){
+					result2.remove(word);
+//					System.out.println(result);
+//					System.out.println(word);
 				}
-			} catch (MalformedURLException e) {
+			}
+			//System.out.println(result.size());
+			return result2;
+	}
+	public String stringifyHTMLSource(String url){
+		URL url2;
+		HttpURLConnection http;
+		InputStreamReader is;
+		String htmlSource="";
+		try {
+			url2 = new URL(url);
+			http= (HttpURLConnection) url2.openConnection();
+			http.setRequestMethod("GET");
+			is = new InputStreamReader(http.getInputStream());
+			BufferedReader rd = new BufferedReader(is);
+			String line=rd.readLine();
+			while(line!=null){
+				//System.out.println(line);
+				htmlSource+=line;
+				line=rd.readLine();
+				}
+		}
+		 catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return result;
+		return htmlSource;
 	}
 	public static void main(String[] args){
 		new Computater(null);
