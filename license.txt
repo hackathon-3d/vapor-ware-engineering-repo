@@ -1,6 +1,0 @@
-TODO:
-implement the GPLv2 T's and C's (terms/conditions) or copy the repo into a new github repo with GPLv2 applied, if so approved
-per the Sparc Hackathon3D terms and conditions expressed in the waivers/consent forms/or expressly agreed to via participation
-as a team competing for the gold and prize of $1Googleplex
-
-GPLv2's application is <a href="http://www.gnu.org/licenses/gpl-2.0.html">described here</a>
