@@ -22,7 +22,7 @@ public class Computater{
 	
 	static enum MONTHS {January , February, March, April, May, June, July,
           August, September, October, November, December};
-	
+	private ArrayList<String> answer;
 	/**
 	* get a url-specified list and return a list
 	* of all the URL's for the Monthly files
@@ -32,10 +32,8 @@ public class Computater{
 	* if desired
 	**/
 	public Computater(String[] args){
-		ArrayList<String> answer=getArchiverMonths();
-	 	for(String a:answer)
-	 		System.out.println(a);
-		}
+		answer=getArchiverMonths();
+	}	
 
 	public ArrayList<String> getArchiverMonths(){
 		/*
@@ -114,7 +112,11 @@ public class Computater{
 			}
 		return htmlSource;
 	}
-	public static void main(String[] args){
-		new Computater(null);
+	public ArrayList<String> getMonths(){
+		ArrayList<String> months = new ArrayList<String>();
+		for(String m:answer){
+			months.add(m);
+		}
+		return months;
 	}
 }
