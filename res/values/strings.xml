@@ -3,7 +3,7 @@
 
     <string name="app_name">testHack</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello email-list (mailing list) user,\n\nPrepare to see your emailing capabilities transformed!</string>
+    <string name="hello_world">Hello email-list (mailing list) user,\n\nPrepare to see your emailing capabilities transformed.</string>
     <string name="sender_name">Name to display</string>
     <string name="passwd">password</string>
     <string name="email">email address</string>
